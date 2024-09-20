@@ -48,7 +48,7 @@ public:
      * @brief Trie les note enregistrée de manière croissante
      * @return Le liste de note trié
      */
-    std::vector<float> sortNote();
+    std::vector<float> sortScore();
 
     /**
      * @brief Verifie si l'étudiant est admis ou non

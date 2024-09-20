@@ -17,6 +17,10 @@ void Student::addScore(float score) {
 
 
 float Student::calculateAverage() {
+    // Ne rien faire si la liste est vide
+    if (scoreList.size() == 0)
+        return 0;
+    
     float avg, scoreSum;
     int scoreCount;
 
@@ -36,17 +40,35 @@ float Student::calculateAverage() {
 
 
 float Student::calculateMedian() {
+    // Ne rien faire si la liste est vide
+    if (scoreList.size() == 0)
+        return 0;
+
     float mediane;
-    float scoreCount;
+    int scoreCount;
+    float middle;
 
     scoreCount = scoreList.size();
-    mediane = scoreCount / 2;
+    middle = (float)scoreCount / 2;
+    sortScore();
 
+    if (scoreCount % 2 == 1) {
+        mediane = scoreList[middle];
+    } else {
+        float val_1 = scoreList[middle-0.5];
+        float val_2 = scoreList[middle+0.5];
+        mediane = (val_1 + val_2) / 2;
+    }
+    
     return mediane;
 }
 
 
 float Student::getBestScore() {
+    // Ne rien faire si la liste est vide
+    if (scoreList.size() == 0)
+        return 0;
+
     float bestScore;
 
     bestScore = *std::max_element(
@@ -59,6 +81,10 @@ float Student::getBestScore() {
 
 
 float Student::getWorstScore() {
+    // Ne rien faire si la liste est vide
+    if (scoreList.size() == 0)
+        return 0;
+
     float worstScore;
 
     worstScore = * std::min_element(
@@ -70,7 +96,7 @@ float Student::getWorstScore() {
 }
 
 
-std::vector<float> Student::sortNote() {
+std::vector<float> Student::sortScore() {
     std::sort(
         std::begin(scoreList),
         std::end(scoreList)
