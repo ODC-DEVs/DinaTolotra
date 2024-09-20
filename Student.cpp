@@ -31,9 +31,7 @@ float Student::calculateAverage() {
         0
     );
 
-    if (scoreCount == 0) return 0;
-
-    avg = scoreSum / scoreSum;
+    avg = scoreSum / scoreCount;
 
     return avg;
 }
