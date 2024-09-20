@@ -44,7 +44,7 @@ float Student::calculateMedian() {
     if (scoreList.size() == 0)
         return 0;
 
-    float mediane;
+    float median;
     int scoreCount;
     float middle;
 
@@ -53,14 +53,14 @@ float Student::calculateMedian() {
     sortScore();
 
     if (scoreCount % 2 == 1) {
-        mediane = scoreList[middle];
+        median = scoreList[middle];
     } else {
         float val_1 = scoreList[middle-0.5];
         float val_2 = scoreList[middle+0.5];
-        mediane = (val_1 + val_2) / 2;
+        median = (val_1 + val_2) / 2;
     }
     
-    return mediane;
+    return median;
 }
 
 
